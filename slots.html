@@ -1,44 +1,52 @@
-<table id="services_offered_table">
-  <thead>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="slots.js"></script>
+  </head>
+  <body>
+    <table id="services_offered_table">
+      <thead>
+            <tr>
+                <th style="width:33px;"><input type="checkbox"></th>
+                <th style="width:127px;">Service</th>
+                <th style="width:99px;">Service time<br/>(in minutes)</th>
+                <th style="width:135px;">No.of cars serviced<br/>during service time</th>
+                <th style="width:318px;">Service availability</th>
+                <th style="width:169px;">Min. time before booking<br/>(in hours)</th>
+                <th style="width:118px;">Actions</th>
+            </tr>
+      </thead>
+      <tbody>
         <tr>
-            <th style="width:33px;"><input type="checkbox"></th>
-            <th style="width:127px;">Service</th>
-            <th style="width:99px;">Service time<br/>(in minutes)</th>
-            <th style="width:135px;">No.of cars serviced<br/>during service time</th>
-            <th style="width:318px;">Service availability</th>
-            <th style="width:169px;">Min. time before booking<br/>(in hours)</th>
-            <th style="width:118px;">Actions</th>
+          <td><input type="checkbox"></td>
+          <td>Car Wash</td>
+          <td><div class="div_height_15"></div><input class="number_spinner" min="10" max="180" maxlength="3" onkeypress="return isNumber(event)" onBlur="services_offered_error(this,1)"><div class="error_message div_height_15"></div></td>
+          <td><div class="div_height_15"></div><input class="number_spinner" min="1" max="10" maxlength="2" onkeypress="return isNumber(event)" onBlur="services_offered_error(this,1)"><div class="error_message div_height_15"></div></td>
+          <td>
+              <table class="service_availability_table">
+                  <tr>
+                      <th>Slot<br/>No.</th>
+                      <th>Starts at:</th>
+                      <th></th>
+                      <th>Ends at:</th>
+                      <th style="background:none;padding:0;border-bottom:none;"><img src="plus.png" style="vertical-align:middle;" onClick="add_slot(this)"></th>
+                  </tr>
+                  <tr>
+                      <td>1.</td>
+                      <td><div class="div_height_15"></div><input class="time_spinner" onBlur="services_offered_error(this,1)"><div class="error_message div_height_15"></div></td>
+                      <td>to</td>
+                      <td><div class="div_height_15"></div><input class="time_spinner" onBlur="services_offered_error(this,1)"><div class="error_message div_height_15"></div></td>
+                      <td><img src="minus.png" onClick="remove_slot(this)"></td>
+                  </tr>
+              </table>
+          </td>
+          <td><div class="div_height_15"></div><input class="number_spinner" min="12" max="48" maxlength="2" onkeypress="return isNumber(event)" onBlur="services_offered_error(this,1)"><div class="error_message div_height_15"></div></td>
+          <td>
+              <a class="button_like_link" href="#slot_viewer_modal_window">View slots</a><br/>
+              <a class="button_like_link" href="#service_description_modal_window">View description</a>
+          </td>
         </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><input type="checkbox"></td>
-      <td>Car Wash</td>
-      <td><div class="div_height_15"></div><input class="number_spinner" min="10" max="180" maxlength="3" onkeypress="return isNumber(event)" onBlur="services_offered_error(this,1)"><div class="error_message div_height_15"></div></td>
-      <td><div class="div_height_15"></div><input class="number_spinner" min="1" max="10" maxlength="2" onkeypress="return isNumber(event)" onBlur="services_offered_error(this,1)"><div class="error_message div_height_15"></div></td>
-      <td>
-          <table class="service_availability_table">
-              <tr>
-                  <th>Slot<br/>No.</th>
-                  <th>Starts at:</th>
-                  <th></th>
-                  <th>Ends at:</th>
-                  <th style="background:none;padding:0;border-bottom:none;"><img src="plus.png" style="vertical-align:middle;" onClick="add_slot(this)"></th>
-              </tr>
-              <tr>
-                  <td>1.</td>
-                  <td><div class="div_height_15"></div><input class="time_spinner" onBlur="services_offered_error(this,1)"><div class="error_message div_height_15"></div></td>
-                  <td>to</td>
-                  <td><div class="div_height_15"></div><input class="time_spinner" onBlur="services_offered_error(this,1)"><div class="error_message div_height_15"></div></td>
-                  <td><img src="minus.png" onClick="remove_slot(this)"></td>
-              </tr>
-          </table>
-      </td>
-      <td><div class="div_height_15"></div><input class="number_spinner" min="12" max="48" maxlength="2" onkeypress="return isNumber(event)" onBlur="services_offered_error(this,1)"><div class="error_message div_height_15"></div></td>
-      <td>
-          <a class="button_like_link" href="#slot_viewer_modal_window">View slots</a><br/>
-          <a class="button_like_link" href="#service_description_modal_window">View description</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </body>
+</html>
