@@ -1,5 +1,6 @@
 #code for generating slots
-$(".button_like_link").click(function(event){
+$(document).ready(function() {
+	$(".button_like_link").click(function(event){
 		if($(this).next().length > 0){ // "View slots" was clicked
 			var error_exist_and_focus_found = 0;
 			var grand_parent_row = $(this).parents("tr");
@@ -47,3 +48,4 @@ $(".button_like_link").click(function(event){
 			check_length($("#service_description_viewer textarea"));
 		}
 	});
+});
