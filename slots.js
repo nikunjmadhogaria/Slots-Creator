@@ -1,5 +1,41 @@
 #code for generating slots
 $(document).ready(function() {
+	$("#services_offered_table > thead input:checkbox").click(function(){
+		if($(this).prop("checked"))
+			$("#services_offered_table > tbody > tr > td:nth-child(1) input:checkbox").prop("checked",false).click();
+		else
+			$("#services_offered_table > tbody > tr > td:nth-child(1) input:checkbox").prop("checked",true).click();
+	});
+	$("#services_offered_table td:nth-child(1) input:checkbox").click(function(){
+		var row_number = $(this).parents("tr").prevAll("tr").length + 1;
+		if($(this).prop("checked")){
+			$("#service_charges_table tbody tr:nth-child("+row_number+")").css({'background':'none','pointer-events':'auto'});
+			$("#service_charges_table tbody tr:nth-child("+row_number+")").find(".ui-spinner:not(.ui-spinner:last)").addClass("active_spinner");
+			$(this).parents("tr").css({'background':'none','pointer-events':'auto'});
+			$(this).parents("tr").find(".service_availability_table th").not(".service_availability_table th:nth-child(5)").css({'background':'#c14e00','color':'#ffffff'});
+			$(this).parents("tr").find(".button_like_link").css({'background':'#E85C00','border-color':'#E85C00','color':'#ffffff'});
+		}
+		else{
+			$("#service_charges_table tbody tr:nth-child("+row_number+")").css({'background':'#FFFBF2','pointer-events':'none'});
+			$("#service_charges_table tbody tr:nth-child("+row_number+")").find(".ui-spinner").removeClass("active_spinner");
+			$("#service_charges_table tbody tr:nth-child("+row_number+") td:nth-child(5) input").prop("checked",false);;
+			$("#service_charges_table tbody tr:nth-child("+row_number+")").find(".number_spinner").val("");
+			$("#service_charges_table tbody tr:nth-child("+row_number+")").find(".error_message").text("");
+			$(this).parents("tr").css({'background':'#FFFBF2','pointer-events':'none'});
+			$(this).parents("tr").find(".service_availability_table th").not(".service_availability_table th:nth-child(5)").css({'background':'#fff0d7','color':'#E85C00'});
+			$(this).parents("tr").find(".button_like_link").css({'background':'#fff0d7','border-color':'#fff0d7','color':'#E85C00'});
+			$(this).parents("tr").find("tr:nth-child(2)").nextAll().remove();
+			$(this).parents("tr").find(".error_message").text("");
+			$(this).parents("tr").find("input:not(input:checkbox)").val("");
+		}
+	});
+	$(".button_like_link").hover(
+	function(){
+		$(this).css({'background':'#c14e00','border-color':'#c14e00'});
+	},
+	function(){
+		$(this).css({'background':'#E85C00','border-color':'#E85C00'});
+	});
 	$(".button_like_link").click(function(event){
 		if($(this).next().length > 0){ // "View slots" was clicked
 			var error_exist_and_focus_found = 0;
