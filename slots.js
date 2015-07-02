@@ -1,6 +1,5 @@
-#code for generating slots
 $(document).ready(function() {
-	//alert();
+	alert();
 	$("#services_offered_table > thead input:checkbox").click(function(){
 		if($(this).prop("checked"))
 			$("#services_offered_table > tbody > tr > td:nth-child(1) input:checkbox").prop("checked",false).click();
