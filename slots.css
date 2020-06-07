@@ -1,3 +1,19 @@
+body{
+  width:1006px;
+  margin:0 auto;
+}
+/*error message container (S T A R T)*/
+
+.error_message
+{
+	font-size:10px;
+	color:#ff0000;
+	font-weight:normal;
+}
+
+/*error message container (S T O P)*/
+
+
 /*services offered form (S T A R T)*/
 
 #services_offered_table
